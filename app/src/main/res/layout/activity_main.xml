@@ -38,6 +38,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_gotoNext" />
+        <Button
+            android:text="@string/modelPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_gotoModel" />
 
     </LinearLayout>
 </layout>

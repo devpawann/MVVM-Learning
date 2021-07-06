@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
             val intent:Intent=Intent(this,SpinnerActivity::class.java)
             startActivity(intent)
         }
+        binding.btnGotoModel.setOnClickListener {
+            val intent:Intent=Intent(this,ModelActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

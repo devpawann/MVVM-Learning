@@ -7,10 +7,10 @@ import androidx.databinding.DataBindingUtil
 import com.pawan.mvvmlearning.databinding.ActivitySpinnerBinding
 
 class SpinnerActivity : AppCompatActivity() {
-    private lateinit var binding:ActivitySpinnerBinding
+    private lateinit var binding: ActivitySpinnerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=DataBindingUtil.setContentView(this,R.layout.activity_spinner)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_spinner)
 
         binding.btnProgressControl.setOnClickListener {
             changeSpinner()
@@ -18,12 +18,16 @@ class SpinnerActivity : AppCompatActivity() {
     }
 
     private fun changeSpinner() {
-        if(binding.progressBar.visibility== View.GONE){
-            binding.progressBar.visibility=View.VISIBLE
-            binding.btnProgressControl.text="Stop"
-        }else{
-            binding.progressBar.visibility=View.GONE
-            binding.btnProgressControl.text="Start"
+        binding.apply {
+            if (progressBar.visibility == View.GONE) {
+                progressBar.visibility = View.VISIBLE
+                btnProgressControl.text = "Stop"
+            } else {
+                progressBar.visibility = View.GONE
+                btnProgressControl.text = "Start"
+            }
         }
+
+
     }
 }

@@ -2,5 +2,6 @@
     <string name="app_name">MVVMLearning</string>
     <string name="name">Name</string>
     <string name="greeting">Greeting</string>
-    <string name="nextPage">Next Screen</string>
+    <string name="nextPage">Spinner Screen</string>
+    <string name="modelPage">Model Screen</string>
 </resources>
