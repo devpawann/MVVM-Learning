@@ -1,5 +1,6 @@
 package com.pawan.mvvmlearning
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
 
             incrementBtn.setOnClickListener {
                 tvCount.text=viewModel.getIncrementedCount().toString()
+            }
+
+            btnAccumulate.setOnClickListener {
+                val intent=Intent(this@MainActivity,AccumulateActivity::class.java)
+                startActivity(intent)
             }
         }
     }

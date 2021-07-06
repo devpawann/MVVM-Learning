@@ -17,21 +17,28 @@
             android:id="@+id/tv_Count"
             android:layout_width="82dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="151dp"
-            android:layout_marginTop="237dp"
-            android:layout_marginBottom="33dp"
+            android:layout_marginBottom="51dp"
             app:layout_constraintBottom_toTopOf="@+id/incrementBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/incrementBtn" />
 
         <Button
             android:id="@+id/incrementBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="342dp"
+            android:layout_marginTop="324dp"
             android:text="@string/increment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_Count"
-            app:layout_constraintTop_toBottomOf="@+id/tv_Count" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_Accumulate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="33dp"
+            android:text="@string/goto_accumulate_screen"
+            app:layout_constraintStart_toStartOf="@+id/incrementBtn"
+            app:layout_constraintTop_toBottomOf="@+id/incrementBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
