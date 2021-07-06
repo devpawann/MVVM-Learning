@@ -10,12 +10,11 @@ class ModelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_model)
-        val student=getStudent()
-        binding.tvEmail.text=student.email
-        binding.tvName.text=student.name
+        binding.std=getStudent()
+
     }
 
-    fun getStudent(): StudentModel {
+    private fun getStudent(): StudentModel {
         return StudentModel("Pawan", "pawan@gmail.com")
     }
 }

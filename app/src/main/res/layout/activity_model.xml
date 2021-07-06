@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="std"
+            type="com.pawan.mvvmlearning.StudentModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="236dp"
             android:layout_marginBottom="23dp"
+            android:text="@{std.email}"
             app:layout_constraintBottom_toTopOf="@+id/tv_Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +31,7 @@
         <TextView
             android:id="@+id/tv_Name"
             android:layout_width="170dp"
+            android:text="@{std.name}"
             android:layout_height="wrap_content"
             android:layout_marginBottom="365dp"
             app:layout_constraintBottom_toBottomOf="parent"
