@@ -33,5 +33,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_submit" />
 
+        <Button
+            android:text="@string/nextPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_gotoNext" />
+
     </LinearLayout>
 </layout>
