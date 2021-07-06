@@ -13,18 +13,18 @@ class AccumulateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_accumulate)
-        factory=AccumulateViewModelFactory(200)
-        viewModel = ViewModelProvider(this,factory).get(AccumulateViewModel::class.java)
+        factory = AccumulateViewModelFactory(200)
+        viewModel = ViewModelProvider(this, factory).get(AccumulateViewModel::class.java)
 
+        viewModel.sumData.observe(this) {
+            binding.apply {
+                tvResult.text = it.toString()
 
-        binding.apply {
-            tvResult.text=viewModel.getCurrentSum().toString()
+                button.setOnClickListener {
+                    viewModel.addNumber(etNumber1.text.toString().toInt())
+                    etNumber1.text.clear()
 
-            button.setOnClickListener {
-                val num:Int=etNumber1.text.toString().toInt()
-                tvResult.text=viewModel.addNumber(num).toString()
-                etNumber1.text.clear()
-
+                }
             }
         }
     }

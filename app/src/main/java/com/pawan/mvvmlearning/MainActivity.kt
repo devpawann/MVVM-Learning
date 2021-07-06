@@ -13,19 +13,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel=ViewModelProvider(this).get(ActivityMainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ActivityMainViewModel::class.java)
 
-        binding.apply {
-            tvCount.text=viewModel.getCurrentCount().toString()
+        viewModel.countData.observe(this) {
+            binding.apply {
+                tvCount.text = it.toString()
 
-            incrementBtn.setOnClickListener {
-                tvCount.text=viewModel.getIncrementedCount().toString()
-            }
+                incrementBtn.setOnClickListener {
+                    viewModel.incrementCount()
+                }
 
-            btnAccumulate.setOnClickListener {
-                val intent=Intent(this@MainActivity,AccumulateActivity::class.java)
-                startActivity(intent)
+                btnAccumulate.setOnClickListener {
+                    val intent = Intent(this@MainActivity, AccumulateActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
+
+
     }
 }

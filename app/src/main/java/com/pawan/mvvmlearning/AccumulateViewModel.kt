@@ -1,20 +1,21 @@
 package com.pawan.mvvmlearning
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class AccumulateViewModel(private val initialCount:Int) : ViewModel() {
-    private var sum: Int = 0;
+class AccumulateViewModel(private val initialCount: Int) : ViewModel() {
+    private var sum = MutableLiveData<Int>();
+
+    val sumData: LiveData<Int> get() = sum
+
 
     init {
-        sum=initialCount
+        sum.value = initialCount
     }
 
-    fun getCurrentSum(): Int {
-        return sum;
-    }
+    fun addNumber(num: Int) {
+        sum.value = sum.value?.plus(num)
 
-    fun addNumber(num: Int): Int {
-        sum += num
-        return sum
     }
 }
