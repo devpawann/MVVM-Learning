@@ -23,10 +23,11 @@ class MainActivity : AppCompatActivity() {
                     viewModel.incrementCount()
                 }
 
-                btnAccumulate.setOnClickListener {
-                    val intent = Intent(this@MainActivity, AccumulateActivity::class.java)
-                    startActivity(intent)
-                }
+                //can perform same from layout file using listener binding
+//                btnAccumulate.setOnClickListener {
+//                    val intent = Intent(this@MainActivity, AccumulateActivity::class.java)
+//                    startActivity(intent)
+//                }
             }
         }
 

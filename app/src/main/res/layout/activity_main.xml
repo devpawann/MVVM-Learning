@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+    <variable
+        name="myViewModel"
+        type="com.pawan.mvvmlearning.ActivityMainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +35,7 @@
 
         <Button
             android:id="@+id/btn_Accumulate"
+            android:onClick="@{()->myViewModel.incrementCount()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
