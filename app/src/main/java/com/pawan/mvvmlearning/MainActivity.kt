@@ -3,6 +3,7 @@ package com.pawan.mvvmlearning
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.pawan.mvvmlearning.databinding.ActivityMainBinding
@@ -14,23 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(ActivityMainViewModel::class.java)
+        binding.lifecycleOwner = this
+        binding.myViewModel = viewModel
 
-        viewModel.countData.observe(this) {
-            binding.apply {
-                tvCount.text = it.toString()
+        binding.btnAccumulate.setOnClickListener {
+            Log.d("tag", "Here")
 
-                incrementBtn.setOnClickListener {
-                    viewModel.incrementCount()
-                }
-
-                //can perform same from layout file using listener binding
-//                btnAccumulate.setOnClickListener {
-//                    val intent = Intent(this@MainActivity, AccumulateActivity::class.java)
-//                    startActivity(intent)
-//                }
-            }
+            val intent = Intent(this, AccumulateActivity::class.java)
+            startActivity(intent)
         }
-
 
     }
 }
