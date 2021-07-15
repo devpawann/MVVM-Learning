@@ -19,19 +19,21 @@ class MainActivity : AppCompatActivity() {
         val retrofitService =
             RetrofitInstance.getRetrofitInstance().create(AlbumsService::class.java)
 
-        val responseLiveData: LiveData<Response<Album>> = liveData {
+        val responseLiveData: LiveData<Response<Album.AlbumItem>> = liveData {
             //val response = retrofitService.getAlbums()
-            val response = retrofitService.getAlbumsOfSingleUserId(3)
-            emit(response)
+           // val response = retrofitService.getAlbumsOfSingleUserId(3)
+           val response = retrofitService.getSingle(3)
+           emit(response)
         }
 
         responseLiveData.observe(this, Observer { it ->
             val albumsList = it.body()
-            albumsList?.forEach {
-                Log.d("TAG", it.toString())
-
-                binding.tvAlbum.append(it.toString()+"\n\n")
-            }
+            binding.tvAlbum.append(albumsList.toString()+"\n\n")
+//            albumsList?.forEach {
+//                Log.d("TAG", it.toString())
+//
+//                binding.tvAlbum.append(it.toString()+"\n\n")
+//            }
         })
     }
 }
